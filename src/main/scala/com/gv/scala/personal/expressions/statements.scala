@@ -1,4 +1,4 @@
-package com.gv.scala.learning.list.classic.Rivalry
+package com.gv.scala.personal.expressions
 
 class statements {
   if(1 > 2) "alien" else "predator"

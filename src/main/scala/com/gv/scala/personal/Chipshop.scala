@@ -1,4 +1,6 @@
-package com.gv.scala.learning.list.cat_o_matic
+package com.gv.scala.personal
+
+import com.gv.scala.personal.cat_o_matic.Cat
 
 object ChipShop {
   def willServe(cat: Cat): Boolean =
