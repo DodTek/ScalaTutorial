@@ -13,10 +13,10 @@ class ListTest extends AnyWordSpec {
       }
     }
     "not empty" should {
-      "yield the last element as requested " in{
+      "yield the last element as requested " in {
         //List(1,2,3,4,5) = List(1 :: 2 :: 3 :: 4 :: 5 :: Nil
-        assertResult(5)(Lists.last(List(1,2,3,4,5)))
-        assertResult("b")(Lists.last(List("a" :: "b" :: Nil)))
+        assertResult(5)(Lists.last(List(1, 2, 3, 4, 5)))
+        assertResult("b")(Lists.last(List("a","b")))
       }
     }
     "empty" should {
