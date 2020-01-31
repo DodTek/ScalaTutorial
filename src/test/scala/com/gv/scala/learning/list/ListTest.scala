@@ -23,6 +23,9 @@ class ListTest extends AnyWordSpec {
         "throws a NoSuchElement exception when last element is requested" in {
           assertThrows[NoSuchElementException](Lists.last(List()))
         }
+        "throws a NoSuchElement exception when lenght is requested" in {
+         assertThrows[NoSuchElementException](Lists.lenght(List()))
+        }
     }
   }
 }
