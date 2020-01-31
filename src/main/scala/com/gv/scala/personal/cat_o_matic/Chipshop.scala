@@ -1,8 +1,6 @@
-package com.gv.scala.personal
+package com.gv.scala.personal.cat_o_matic
 
-import com.gv.scala.personal.cat_o_matic.Cat
-
-object ChipShop {
+object Chipshop {
   def willServe(cat: Cat): Boolean =
     if(cat.food == "Chips")
       true
