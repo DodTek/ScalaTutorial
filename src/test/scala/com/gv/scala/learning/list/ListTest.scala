@@ -9,7 +9,7 @@ class ListTest extends AnyWordSpec {
         assertResult('b')(Lists.last('b' :: Nil))
       }
       "return the lenght of a list that equals 1" in {
-        assertResult(1)(Lists.lenght(List("b")))
+        assertResult(1)(Lists.lenght(List("b"),0))
       }
     }
     "not empty" should {
@@ -20,12 +20,12 @@ class ListTest extends AnyWordSpec {
       }
     }
     "empty" should {
-        "throws a NoSuchElement exception when last element is requested" in {
-          assertThrows[NoSuchElementException](Lists.last(List()))
-        }
-        "throws a NoSuchElement exception when lenght is requested" in {
-         assertThrows[NoSuchElementException](Lists.lenght(List()))
-        }
+      "throws a NoSuchElement exception when last element is requested" in {
+        assertThrows[NoSuchElementException](Lists.last(List()))
+      }
+      "yields a 0 when the list is empty" in {
+        assertResult(0)(Lists.lenght(List(),0))
+      }
     }
   }
 }
