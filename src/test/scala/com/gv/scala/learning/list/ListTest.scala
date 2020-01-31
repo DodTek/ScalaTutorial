@@ -4,6 +4,11 @@ import org.scalatest.wordspec.AnyWordSpec
 
 class ListTest extends AnyWordSpec {
   "A list" when {
+    "contains a single element" should {
+      "return its element as the last element" in {
+        assertResult('b')(Lists.last('b' :: Nil))
+      }
+    }
     "not empty" should {
       "yield the last element as requested " in{
         //List(1,2,3,4,5) = List(1 :: 2 :: 3 :: 4 :: 5 :: Nil
