@@ -13,7 +13,7 @@ object Lists {
     case head:: Nil => head //if there is one element i.e last("b")
     case _::  tail => last(tail) //more than one element
   }
-
+  @tailrec
   def lenght[A](list: List[A], lenght_x: Int): Int = list match {
 
     case Nil => 0
