@@ -8,6 +8,9 @@ class ListTest extends AnyWordSpec {
       "return its element as the last element" in {
         assertResult('b')(Lists.last('b' :: Nil))
       }
+      "return the lenght of a list that equals 1" in {
+        assertResult(1)(Lists.lenght(List("b")))
+      }
     }
     "not empty" should {
       "yield the last element as requested " in{
