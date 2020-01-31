@@ -18,6 +18,10 @@ class ListTest extends AnyWordSpec {
         assertResult(5)(Lists.last(List(1, 2, 3, 4, 5)))
         assertResult("b")(Lists.last(List("a","b")))
       }
+      "yield the length of a list with multiple elements" in {
+        //List(1,2,3,4,5) = List(1 :: 2 :: 3 :: 4 :: 5 :: Nil
+        assertResult(5)(Lists.lenght(List(1, 2, 3, 4, 5),0))
+      }
     }
     "empty" should {
       "throws a NoSuchElement exception when last element is requested" in {
