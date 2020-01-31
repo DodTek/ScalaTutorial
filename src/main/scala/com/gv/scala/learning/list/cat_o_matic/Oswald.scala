@@ -1,4 +1,4 @@
-package com.gv.scala.learning.cat_o_matic
+package com.gv.scala.learning.list.cat_o_matic
 
 object Oswald {
   val colour = "Black"
