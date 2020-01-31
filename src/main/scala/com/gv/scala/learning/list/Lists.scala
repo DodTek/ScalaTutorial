@@ -1,6 +1,10 @@
 package com.gv.scala.learning.list
 
+import scala.annotation.tailrec
+
 object Lists {
+
+  @tailrec
   def last[A](list: List[A]): A = list match {
     //case List.empty[A]
       //head is first element of list tail is a sublist of list after head is taken out
