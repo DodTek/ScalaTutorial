@@ -1,10 +1,17 @@
 package com.gv.scala.personal.directorial_debut
 
-class filmAndDirectorTest {
-  val eastwood          = new Director("Clint", "Eastwood", 1930)
-  val mcTiernan         = new Director("John", "McTiernan", 1951)
-  val nolan             = new Director("Christopher", "Nolan", 1970)
-  val someBody          = new Director("Just", "Some Body", 1990)
+import org.scalatest.wordspec.AnyWordSpec
+
+class filmAndDirectorTest extends AnyWordSpec {
+  val eastwood = new Director("Clint", "Eastwood", 1930)
+  val mcTiernan = new Director("John", "McTiernan", 1951)
+  "A Director" when {
+    "first name function is called" should {
+      "return first name" in {
+        assertResult("Clint")(eastwood.firstName)
+        assertResult("John")(mcTiernan.firstName)
+      }
+    }
 
   val memento           = new Film("Memento", 2000, 8.5, nolan)
   val darkKnight        = new Film("Dark Knight", 2008, 9.0, nolan)
