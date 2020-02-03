@@ -26,7 +26,8 @@ object Lists {
   {
     list match {
       case Nil => true
-      //case (list.head != list.last) => false
+      //case {list.head != list.last} => false
+      case head:: Nil => isPalindrome(list.tail)
       case list => (list.head == list.last && isPalindrome(list.tail.init))
     }
   }
@@ -38,5 +39,4 @@ object Lists {
       case (x :: xs) => { reverseList(x :: result, xs) }
     }
   }
-
 }
