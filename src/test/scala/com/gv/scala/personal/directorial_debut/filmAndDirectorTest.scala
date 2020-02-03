@@ -33,4 +33,22 @@ class filmAndDirectorTest extends AnyWordSpec {
 
   val huntForRedOctober = new Film("The Hunt for Red October", 1990, 7.6, mcTiernan)
   val thomasCrownAffair = new Film("The Thomas Crown Affair", 1999, 6.8, mcTiernan)
+  "A Film" when {
+    "director age is called" should {
+      "return age of director" in {
+        assertResult(39)(huntForRedOctober.directorsAge)
+        assertResult(46)(outlawJoseyWales.directorsAge)
+      }
+    }
+
+    "isDirectedBy is called" should {
+      "return boolean" in {
+        assertResult(true)(highPlainsDrifter.isDirectedBy(eastwood))
+        assertResult(true)(thomasCrownAffair.isDirectedBy(mcTiernan))
+
+        assertResult(false)(huntForRedOctober.isDirectedBy(eastwood))
+        assertResult(false)(outlawJoseyWales.isDirectedBy(mcTiernan))
+      }
+    }
+  }
 }
