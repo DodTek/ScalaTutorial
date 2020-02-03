@@ -5,18 +5,18 @@ import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.wordspec.AnyWordSpec
 
 class catOmaticTest extends AnyWordSpec {
-  /*
-  chipper = new Chipshop
+
+  var henderson = new Cat("Ginger", "Chips")
+
+  var oswald= new Cat("Black", "Milk")
   "A chip shop" when {
-    "willServe is called" should {
+    "will Serve is called" should {
       "return boolean " in {
-        assertResult("Clint")(eastwood.firstName)
-        assertResult("John")(mcTiernan.firstName)
+        assertResult(false)(Chipshop.willServe(oswald))
+        assertResult(true)(Chipshop.willServe(henderson))
       }
     }
   }
-  */
-  var henderson = new Cat("Ginger", "Chips")
   "A cat" when {
     "created" should {
       "have a colour" in {
