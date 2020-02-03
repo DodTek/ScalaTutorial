@@ -31,5 +31,17 @@ class ListTest extends AnyWordSpec {
         assertResult(0)(Lists.lenght(List(),0))
       }
     }
+    "is a Palindrome" should {
+      "return boolean" in {
+        assertResult(true)(Lists.isPalindrome(List(1, 2, 3, 2, 1)))
+        assertResult(false)(Lists.isPalindrome(List(1, 2, 3, 4, 1)))
+      }
+    }
+
+    "is reversed" should {
+      "return reversed list" in {
+        assertResult(List(3,2,1))(Lists.reverseList(Nil,List(1, 2, 3)))
+      }
+    }
   }
 }
