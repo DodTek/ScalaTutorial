@@ -36,7 +36,7 @@ object Lists {
   def reverseList[A](result : List[A], list : List[A]) : List[A] = {
     list match {
       case Nil => result
-      case (x :: xs) => { reverseList(x :: result, xs) }
+      case (x :: xs) =>  reverseList(x :: result, xs)
     }
   }
 }
