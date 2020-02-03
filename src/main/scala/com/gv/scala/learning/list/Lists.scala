@@ -21,4 +21,22 @@ object Lists {
     case _ :: tail => lenght(tail, lenght_x + 1) //more than one element
 
   }
+  @tailrec
+  def isPalindrome(list:List[Int]):Boolean =
+  {
+    list match {
+      case Nil => true
+      //case (list.head != list.last) => false
+      case list => (list.head == list.last && isPalindrome(list.tail.init))
+    }
+  }
+
+  @tailrec
+  def reverseList[A](result : List[A], list : List[A]) : List[A] = {
+    list match {
+      case Nil => result
+      case (x :: xs) => { reverseList(x :: result, xs) }
+    }
+  }
+
 }
