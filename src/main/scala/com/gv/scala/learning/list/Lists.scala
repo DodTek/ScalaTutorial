@@ -43,7 +43,7 @@ object Lists {
     list match {
       case Nil => Nil
       case head :: tail => head match {
-        case x :: xs => flatten(xs)
+        case head :: tail => flatten(tail)
       }
         flatten(tail)
     }
