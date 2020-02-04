@@ -32,9 +32,23 @@ class ListTest extends AnyWordSpec {
       }
     }
     "is a Palindrome" should {
-      "return boolean" in {
+      "be true if empty" in {
+        assertResult(true)(Lists.isPalindrome(List()))
+      }
+      "be true if there is one element" in {
+        assertResult(true)(Lists.isPalindrome(List(1)))
+      }
+      "be true if really a palindrome,even number of elements" in {
+        assertResult(true)(Lists.isPalindrome(List(1, 2, 3, 3, 2, 1)))
+
+      }
+      "be true if really a palindrome,odd number of elements" in {
         assertResult(true)(Lists.isPalindrome(List(1, 2, 3, 2, 1)))
+
+      }
+      "be false if not palindrome" in {
         assertResult(false)(Lists.isPalindrome(List(1, 2, 3, 4, 1)))
+        assertResult(false)(Lists.isPalindrome(List(1, 2, 3, 4, 5)))
       }
     }
 
