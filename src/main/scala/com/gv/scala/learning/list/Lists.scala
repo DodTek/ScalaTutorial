@@ -25,7 +25,7 @@ object Lists {
   {
     list match {
       case Nil => true//if list is empty list return true
-      case head:: Nil => isPalindrome(list.tail) //if list has one element return true
+      case head:: Nil => true //if list has one element return true
       case list => (list.head == list.last && isPalindrome(list.tail.init))//if list contains multiple elements check if
         //list head equals last element then recursively check the other elements
         //note: head "removes" first element (1,2,3,2,1) becomes list(2,3,2,1)
