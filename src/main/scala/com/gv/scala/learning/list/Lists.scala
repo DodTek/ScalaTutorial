@@ -37,8 +37,8 @@ object Lists {
   @tailrec
   def reverseList[A](result : List[A], list : List[A]) : List[A] = {
     list match {
-      case Nil => result
-      case (head :: tail) =>  reverseList(head :: result, tail)
+      case Nil => result //if empty return result which is empty
+      case (head :: tail) =>  reverseList(head :: result, tail)//add head to result and tail as the list to check
     }
   }
   /*
@@ -58,11 +58,11 @@ object Lists {
 
     case head :: tail => {//if list has a head and tail
       head match {//match head
-        case head: List[Any] => flatten2(head)//if head has a "tail" of any list flatten head
-        case _ => List(head) //if everything make list containing head
+        case head: List[Any] => flatten2(head)//if head has a "tail" of any list flatten head and return it
+        case _ => List(head) //if everything make list containing head which should be flat and return it
       }
-    } ::: flatten2(tail)//flatten tail and append to list head which should now be flattened
-    case _ => List(list)//if everything return list which should be flattened list of head and tail
+    } ::: flatten2(tail)//flatten tail and append to list head which should now be flattened then return that list
+    case _ => List(list)//if everything return list which should be a flat list
   }
 
 }
