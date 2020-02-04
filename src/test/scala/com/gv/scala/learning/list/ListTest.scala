@@ -57,5 +57,15 @@ class ListTest extends AnyWordSpec {
         assertResult(List(3,2,1))(Lists.reverseList(Nil,List(1, 2, 3)))
       }
     }
+
+    "is flattened" should {
+      "return an empty list if empty" in {
+        assertResult(List())(Lists.flatten2(List()))
+      }
+      "return a unflattened list" in {
+        assertResult(List(1,2,3))(Lists.flatten2(List(1, List(2, List(3)))))
+        assertResult(List(1,2,3))(Lists.flatten2(List(List(1, List(2, List(3))))))
+      }
+    }
   }
 }
