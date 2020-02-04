@@ -1,5 +1,4 @@
 package com.gv.scala.learning.list
-
 import scala.annotation.tailrec
 
 object Lists {
@@ -36,7 +35,30 @@ object Lists {
   def reverseList[A](result : List[A], list : List[A]) : List[A] = {
     list match {
       case Nil => result
-      case (x :: xs) =>  reverseList(x :: result, xs)
+      case (head :: tail) =>  reverseList(head :: result, tail)
     }
   }
+  /*
+  def flatten(list: List[Any]) : List[Any] = {
+    list match {
+      case Nil => Nil
+      case head :: tail => head match {
+        case x :: xs => flatten(xs)
+      }
+        flatten(tail)
+    }
+    }
+   */
+
+  def flatten2(list: List[Any]): List[Any] = list match {
+    case List() => Nil
+    case head :: tail => {
+      head match {
+        case head: List[Any] => flatten2(head)
+        case _ => List(head)
+      }
+    } ::: flatten2(tail)
+    case _ => List(list)
+  }
+
 }
