@@ -67,5 +67,23 @@ class ListTest extends AnyWordSpec {
         assertResult(List(1,2,3))(Lists.flatten2(List(List(1, List(2, List(3))))))
       }
     }
+    "A list of symbols" when {
+      "full" should {
+        "divide each element into its own list in the list" in {
+          assertResult(List(List('a'), List('a'), List('a'), List('a'), List('b'), List('c'), List('c'), List('d'), List('a'), List('a'), List('e'), List('e'), List('e'), List('e')))(Lists.divide(List('a','a','a','a','b','c','c','d','a','a','e', 'e', 'e', 'e')))
+        }
+        "pack the same element into their own list in the list" in {
+          assertResult(List(List('a', 'a', 'a','a'), List('b'), List('c','c'), List('d'), List('a', 'a'), List('e', 'e', 'e', 'e')))(Lists.pack(List('a','a','a','a','b','c','c','d','a','a','e', 'e', 'e', 'e')))
+        }
+        "encode the same element into their own list in a list" in {
+          assertResult(List((4,'a'), (1,'b'), (2,'c'), (2,'a'), (1,'d'), (4,'e')))(Lists.encode(List('a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e')))
+        }
+      }
+      "empty" should {
+        "return an empty list" in {
+          //assert(Lists.pack(List(),List()).isEmpty)
+        }
+      }
+    }
   }
 }
