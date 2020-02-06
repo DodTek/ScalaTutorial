@@ -65,4 +65,32 @@ object Lists {
     case _ => List(list)//if everything return list which should be a flat list
   }
 
+  def divide(list: List[Any]): List[Any] = list match {
+    case List() => Nil //if list empty return Nil
+    case head :: tail => List(List(head)) ::: divide(tail)
+  }
+
+  def pack[A](list: List[A]): List[List[A]] = {
+    def packRec(acc: List[A], input: List[A]): List[List[A]] = input match {
+      case Nil => Nil
+      case x :: xs => xs match {
+        case Nil => List(acc)
+        case y :: _ =>
+          if (x == y) packRec(x :: acc, xs)
+          else acc :: packRec(List(y),xs)
+      }
+    }
+    val acc = if(list.isEmpty) Nil else list.head :: Nil
+
+    packRec(acc,list)
+  }
+
+  def encode[A](input:List[A]): List[(Int,A)] = {
+    pack(input) map(e => (e.length,e.head))
+  }
+
+  def encodeV2[A](input:List[A]): List[Any] = {
+    pack(input) map(e => (if (e.length == 1)  e else (e.length,e.head)))
+  }
+
 }
