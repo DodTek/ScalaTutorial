@@ -1,5 +1,6 @@
 package com.gv.scala.learning.list
 import scala.annotation.tailrec
+import scala.collection.Searching.InsertionPoint
 
 object Lists {
 
@@ -93,4 +94,12 @@ object Lists {
     pack(input) map(e => (if (e.length == 1)  e else (e.length,e.head)))
   }
 
+  def drop[A](int: Int, input: List[A]): List[A] = {
+    def dropN(c: Int,cur : List[A]): List[A] = (int,input) match {
+      case (_, Nil) => Nil
+      case (1, _ :: tail) => dropN(int, tail)
+      case (_, h :: tail) => h :: dropN(c-1,tail)
+    }
+    dropN(int,input)
+  }
 }
