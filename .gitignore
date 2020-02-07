@@ -1,14 +1,2 @@
 .idea
 **/target
-
-/project/target/streams/compile/_global/_global/compileOutputs/previous
-/project/target/streams/compile/_global/_global/dependencyClasspathFiles/previous
-/project/target/streams/compile/dependencyClasspath/_global/streams/export
-/project/target/streams/compile/exportedProducts/_global/streams/export
-/project/target/streams/runtime/dependencyClasspath/_global/streams/export
-/project/target/streams/runtime/exportedProducts/_global/streams/export
-/project/target/streams/runtime/fullClasspath/_global/streams/export
-/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export
-/project/target/streams/_global/update/_global/streams/out
-/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs
-/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output

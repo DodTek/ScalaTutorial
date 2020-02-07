@@ -81,7 +81,7 @@ class ListTest extends AnyWordSpec {
       }
       "empty" should {
         "return an empty list" in {
-          //assert(Lists.pack(List(),List()).isEmpty)
+          assertResult(Nil)(Lists.pack(List()))
         }
       }
     }
