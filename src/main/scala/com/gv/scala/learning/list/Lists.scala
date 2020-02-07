@@ -102,4 +102,24 @@ object Lists {
     }
     dropN(int,input)
   }
+
+  def split[A](int: Int, input: List[A]): (List[A],List[A]) = {
+    @tailrec
+    def splitN(c : Int, top: List[A], input: List[A]): (List[A],List[A]) = (c,input) match {
+      case (_, Nil) => (top,Nil)
+      case (0, h :: tail) => (top,h :: tail)
+      case (_, h :: tail) => splitN(c-1, top :+ h ,tail)
+    }
+    splitN(int,List(),input)
+  }
+
+  def slice[A](I: Int,K: Int, input: List[A]): List[A] = {
+    @tailrec
+    def slicex(c : Int, top: List[A], input: List[A]): List[A] = (c,input) match {
+      case (_, Nil) => top
+      case (c, h :: tail) =>if(I <= c && c < K) slicex(c+1, top :+ h ,tail) else slicex(c+1, top,tail)
+        //
+    }
+    slicex(0,List(),input)
+  }
 }

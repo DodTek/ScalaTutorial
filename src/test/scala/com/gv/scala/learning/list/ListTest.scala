@@ -78,6 +78,13 @@ class ListTest extends AnyWordSpec {
         "encode the same element into their own list in a list" in {
           assertResult(List((4,'a'), (1,'b'), (2,'c'), (2,'a'), (1,'d'), (4,'e')))(Lists.encode(List('a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e')))
         }
+        "split into two parts based on a size passed in by function split" in {
+          assertResult((List('a', 'b', 'c'),List('d', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))(Lists.split(3, List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
+          //assertResult((List(1, 2, 3),List(4,5,6,7,8,9,10)))(Lists.split(3, List(1, 2,3,4,5,6,7,8,9,10)))
+        }
+        "slice into two parts based on a size passed" in {
+          assertResult(List('d', 'e', 'f', 'g'))(Lists.slice(3, 7, List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
+        }
       }
       "empty" should {
         "return an empty list" in {
