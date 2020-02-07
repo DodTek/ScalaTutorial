@@ -1,0 +1,4 @@
+.idea
+**/target
+
+jetbrains://idea/navigate/reference?project=scala_tutorial&fqn=
