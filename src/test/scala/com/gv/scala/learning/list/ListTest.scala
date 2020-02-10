@@ -89,9 +89,14 @@ class ListTest extends AnyWordSpec {
           assertResult(List('d', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'a', 'b', 'c'))(Lists.rotate(3,List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
           assertResult(List('j', 'k', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'))(Lists.rotate(-2, List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
         }
+
+        "remove an element from the list based on its place in the list" in {
+          assertResult((List('a','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'),'b'))(Lists.removeK(1,List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
+        }
       }
       "empty" should {
         "return an empty list" in {
+          assertResult(Nil)(Lists.divide(List()))
           assertResult(Nil)(Lists.pack(List()))
         }
       }
