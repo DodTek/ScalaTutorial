@@ -98,6 +98,13 @@ class ListTest extends AnyWordSpec {
         "return an empty list" in {
           assertResult(Nil)(Lists.divide(List()))
           assertResult(Nil)(Lists.pack(List()))
+          assertResult(Nil)(Lists.encode(List()))
+          assertResult((Nil,Nil) )(Lists.split(1,List()))
+          assertResult(Nil)(Lists.slice(1,5,List()))
+          assertResult(Nil)(Lists.rotate(1,List()))
+          assertResult( (Nil,0) )(Lists.removeK(1,List()))
+
+
         }
       }
     }
