@@ -118,8 +118,20 @@ object Lists {
     def slicex(c : Int, top: List[A], input: List[A]): List[A] = (c,input) match {
       case (_, Nil) => top
       case (c, h :: tail) =>if(I <= c && c < K) slicex(c+1, top :+ h ,tail) else slicex(c+1, top,tail)
-        //
+      //
     }
     slicex(0,List(),input)
+  }
+
+  def rotate[A](I: Int, input: List[A]): List[A] = {
+    val K: Int= if(I < 0){(lenght(input,0) + I)} else{I}
+
+    @tailrec
+    def rotateX(c : Int, top: List[A], input: List[A]): List[A] = (c,input) match {
+      case (_, Nil) => top
+      case (c, h :: tail) =>if(c < K) rotateX(c+1, top:+ h  ,tail) else rotateX(c+1, h :: tail :::top,Nil)
+      //
+    }
+    rotateX(0,List(),input)
   }
 }

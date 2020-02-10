@@ -85,6 +85,10 @@ class ListTest extends AnyWordSpec {
         "slice into two parts based on a size passed" in {
           assertResult(List('d', 'e', 'f', 'g'))(Lists.slice(3, 7, List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
         }
+        "rotate the list by pushing elements to the left" in {
+          assertResult(List('d', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'a', 'b', 'c'))(Lists.rotate(3,List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
+          assertResult(List('j', 'k', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'))(Lists.rotate(-2, List('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')))
+        }
       }
       "empty" should {
         "return an empty list" in {
