@@ -134,4 +134,14 @@ object Lists {
     }
     rotateX(0,List(),input)
   }
+
+  def removeK[A](int : Int,input: List[A]): (List[A], Any) = {
+    @tailrec
+    def remove(c:Int, inList:List[A], elem: List[A],newList: List[A]): (List[A], Any) = (c,inList) match {
+      case (_, Nil) =>if(elem != Nil){(newList, elem.head)}else { (Nil,0)}
+      case (c, h :: tail) => if(c == int) remove(c + 1,tail,elem :+ h,newList) else remove(c+1,tail,elem,newList :+ h)
+    }
+
+    remove(0,input,Nil,Nil)
+  }
 }
